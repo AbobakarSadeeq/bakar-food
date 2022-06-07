@@ -1,0 +1,6 @@
+No: dish-name:                          dish-description:
+1.  Chicken burger                      Chicken burger with one sprite cold-drink and salad.
+2.  Chicken tikka burger                Full max Chicken tikka burger with only salad.
+3.  Chickpea burger                     Chickpea burger with raita.
+4.  Idli Burger                         regular Idli Burger with not any cold-drink.
+5.  Tofu Burger                         special Tofu Burger with one any cold-drink.

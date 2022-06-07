@@ -1,0 +1,7 @@
+No: dish-name:                          dish-description:
+1.  Chicken Tikka Karahi                regular Chicken Tikka Karahi with one sprite cold-drink and salad.
+2.  Fish Karahi                         Fish Karahi with only salad.
+3.  Kadai Chicken Karahi                2 lag piecs with hot Kadai Chicken Karahi with raita.
+4.  Koyla Karahi Karahi                 regular Koyla Karahi with any one cold-drink only.
+5.  Lahori Mutton Karahi                special Lahori Mutton Karahi  with salad and raita.
+6.  Tandoori Chicken Karahi	        double Tandoori Chicken Karahi with coca-cola cold-drink and salad with raita.

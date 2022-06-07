@@ -1,0 +1,6 @@
+No: dish-name:                          dish-description:
+1.  Aloo gobi mater sabzi               regular special Aloo gobi mater sabzi with one any cold-drink and salad.
+2.  Aloo matar		                Full max Aloo matar with only raita
+3.  Arbi sabzi                          rbi sabzi raita and with sprite cold-drink.
+4.  bhndi                               regular bhndi salad only.
+5.  mixed sabzi 			special mixed sabzi with salad and raita and any cold-drink.

@@ -1,0 +1,7 @@
+No: dish-name:                          dish-description:
+1.  chicken pizza                       regular special chicken pizza with one sprite cold-drink.
+2.  fish pizza                          Full max fish pizza without cold-drink
+3.  iron pizza                          Large iron pizza with any cold-drink.
+4.  malai boti pizza                    regular malai boti pizza with coca cola drink.
+5.  pan pizza                           special pan pizza.
+6.  tomato pizza         		tomato pizza with any cold-drink and with extra slice

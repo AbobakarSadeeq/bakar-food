@@ -1,0 +1,7 @@
+No: dish-name:                          dish-description:
+1.  2 scope ice-cream                   Regular special 2 scope ice-cream with oreo.
+2.  6-scope  ice-cream                  Full max mix 6-scope ice-cream.
+3.  choco bar ice-cream                 Choco bar chocolate ice-cream.
+4.  Chocolate Crunch Ice Cream          Regular chocolate crunch ice cream.
+5.  cone-ice-cream                      Special cone-ice-cream with one bar kitkat.
+6.  Rolled Ice Cream			Double 3 rolled ice cream with mix flavor.

@@ -1,0 +1,7 @@
+No: dish-name:                          dish-description:
+1.  Awadhi Mutton Biryani               regular special Awadhi Mutton Biryani with one sprite cold-drink and salad.
+2.  Calicut Chicken Biryani             Full max calicut chicken biryani with only salad.
+3.  Chicken Biryani With Coconut Milk   2 lag piecs with hot Chicken Biryani With Coconut Milk with raita.
+4.  Chicken Reshmi Biryani              regular Chicken Reshmi Biryani with any one cold-drink only.
+5.  Murgh Ki Kachchi Biryani'           special kachchi biryani with salad and raita.
+6.  Veg Dum Biryani 			double Veg Dum Biryani with coca-cola cold-drink and salad with raita.
