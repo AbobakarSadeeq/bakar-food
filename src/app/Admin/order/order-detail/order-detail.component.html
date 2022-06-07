@@ -1,0 +1,59 @@
+<app-admin-header></app-admin-header>
+
+<!-- Order Detail Page View -->
+<div class="container">
+  <div class="row">
+    <div class="col-12"><br>
+      <h1><strong>Customer Order Detail</strong></h1>
+      <hr>
+      <!-- Address of User -->
+      <div style="font-size: 20px; font-style: roboto;">
+        <p>Order Number: <strong>{{userOrderDetailData[0]?.orderID}}</strong></p>
+        <p>Order by: <strong>{{userOrderDetailData[0]?.fullName}}</strong></p>
+        <p>PhoneNumber: <strong>{{userOrderDetailData[0]?.phoneNumber}}</strong></p>
+        <p>Address: <strong>{{userOrderDetailData[0]?.fullAddress}}</strong></p>
+        <p>Order Requested: <strong>{{userOrderDetailData[0]?.orderTime | date :'dd - MMM - yyyy, h:mm:ss a' }}
+          </strong></p>
+        <p>Order status: <strong>{{userOrderDetailData[0]?.orderStatus}}</strong>
+          <p>Order Shipped: <strong>{{userOrderDetailData[0]?.shippedTime | date :'dd - MMM - yyyy, h:mm:ss a'}}</strong>
+
+        </p>
+      </div>
+
+
+      <br><br>
+      <table class="table table-borderless">
+        <thead>
+          <tr style="border-bottom: 2px solid #d3bc8e; color: #d3bc8e;">
+            <th scope="col">Food Image</th>
+            <th scope="col">Food Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">TotalPriceWithQuantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style=" font-size: 15px; border-bottom: 1px solid rgb(129, 128, 128); "
+            *ngFor="let orderDetailData of userOrderDetailData">
+            <td><img [src]="'data:image/jpg;base64,'+ orderDetailData.image" style="width: 80px;height:80px" alt="">
+            </td>
+            <td>{{orderDetailData?.foodProductName}}</td>
+            <td>{{orderDetailData?.quantity}}</td>
+            <td>{{orderDetailData?.price | currency: 'Rs ': 'symbol':'1.0'}}</td>
+            <td>{{orderDetailData?.totalPrice | currency: 'Rs ': 'symbol':'1.0'}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="text-align: right; padding-right: 270px;">TOTAL BILL = {{totalPriceSingleOrder | currency: 'Rs ':
+        'symbol':'1.0'}}</h2>
+      <hr>
+      <button style="float: right;" class="btn btn-primary" *ngIf="userOrderDetailData[0]?.orderStatus == 'Pending'"
+        (click)="confirmOrder(userOrderDetailData[0]?.fullAddress)">Confirm Order!</button>
+    </div>
+  </div>
+</div>
+
+
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

@@ -1,0 +1,96 @@
+
+<nav class="main-navbar " [ngClass]="!showSideBar ? 'offSidebar' : ''" >
+  <div class="left-side-btns hamburger">
+    <a [routerLink]="['/Admin']"><i class="fa-solid fa-store"></i> Bakar Food Admin</a>
+    <a (click)="toggleMenuBtn()"><i class="fa-solid fa-align-justify"></i></a>
+  </div>
+
+  <div class="right-side-btns">
+    <a [routerLink]="['']">client-side</a>
+  </div>
+</nav>
+
+<div class="wrapper" *ngIf="showSideBar">
+  <!--Top Menu & Menu button-->
+  <div class="sidebar" style="z-index: 1000;" [ngClass]="showSideBar ? 'onSideBar' : ''">
+    <div class="profile">
+      <!--Profile Image-->
+      <img src="../../../assets/flag3.jpg" alt="profile_picture">
+      <!--Profile Title & Descruption-->
+      <h3>Abobakar Sadeeq</h3>
+      <p>Admin</p>
+    </div>
+    <!--Menu item-->
+
+    <ul>
+      <li>
+        <a [routerLink]="['/Admin']">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="item">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-desktop"></i></span>
+          <span class="item">My Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-user-friends"></i></span>
+          <span class="item">People</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+          <span class="item">Perfomance</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-database"></i></span>
+          <span class="item">Development</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fas fa-chart-line"></i></span>
+          <span class="item">Reports</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/Admin/Orders']">
+          <span class="icon"><i class="fas fa-chart-line"></i> </span>
+          <span class="item">Orders</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/FoodType']">
+          <span class="icon"><i class="fas fa-cookie    "></i></span>
+          <span class="item">Food type </span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/FoodProduct']">
+          <span class="icon"><i class="fa-solid fa-burger"></i></span>
+          <span class="item">Food Product </span>
+        </a>
+      </li>
+
+
+
+
+
+
+
+
+
+    </ul>
+
+
+
+
+  </div>
+
+</div>

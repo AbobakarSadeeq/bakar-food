@@ -1,0 +1,8 @@
+.card{
+  margin-top: 20px;
+}
+
+.save-btn{
+  display: flex;
+  justify-content: end;
+}

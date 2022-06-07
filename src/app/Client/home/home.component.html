@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<!-- Carousel -->
+  <div class="carosel">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets//hotel carousel/1.png">
+
+        </div>
+        <div class="carousel-caption">
+          <h3>asdsad</h3>
+          <p>asdwsadadw</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/hotel carousel/2.png">
+        </div>
+        <div class="carousel-caption">
+          <h3>asdsad</h3>
+          <p>asdwsadadw</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/hotel carousel/3.png">
+        </div>
+        <div class="carousel-caption">
+          <h3>asdsad</h3>
+          <p>asdwsadadw</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/hotel carousel/4.jpg">
+        </div>
+        <div class="carousel-caption">
+          <h3>asdsad</h3>
+          <p>asdwsadadw</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="../../../assets/hotel carousel/5.jpg">
+        </div>
+        <div class="carousel-caption">
+          <h3>asdsad</h3>
+          <p>asdwsadadw</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+  <!-- Section 2 -->
+  <div class="Top-sells"  ><br>
+    <h1>Our best food</h1>
+    <div class="row">
+      <div class="col-lg-2 singleBox" *ngFor="let singleFoodProduct of foodArr">
+        <a style=" font-family: Gotham Medium; font-size: 15px; color: #282828; text-decoration: none;"
+          [routerLink]="['/FoodProduct/Detail/',singleFoodProduct?.foodProductID]">
+
+          <img src="data:image/jpg;base64,{{singleFoodProduct?.image}}" class="card-img-top" alt="adv" />
+          <span style="font-family: Gotham Medium; font-size: 14px; ">{{singleFoodProduct?.foodProductName | uppercase}}
+          </span>
+          <span style="font-family: Gotham Medium; font-size: 14px; "> &nbsp;({{singleFoodProduct?.foodTypeName |
+            uppercase}})</span>
+          <p style="height: 45px;">{{singleFoodProduct.foodProductDescription}}</p>
+          <div>
+            <button class="box-btn-1st"><b>{{singleFoodProduct?.price | currency: 'Rs ': 'symbol':'1.0'}}</b></button>
+            <button class="box-btn-2nd"><b>ADD TO BUCKET</b></button>
+          </div>
+
+        </a>
+      </div>
+    </div>
+    <img src="data:image/jpg;base64," alt="">
+  </div>
+
+  <app-footer></app-footer>

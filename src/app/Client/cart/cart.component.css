@@ -1,0 +1,14 @@
+.main-cart {
+  margin-top: 100px;
+  margin-left: 240px;
+}
+
+.confirmCartItem :hover {
+
+  background-color: #3e8e41
+
+}
+
+td{
+  padding-top: 35px;
+}

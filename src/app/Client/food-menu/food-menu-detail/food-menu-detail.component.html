@@ -1,0 +1,103 @@
+<app-header></app-header>
+<br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+
+
+      <img src="{{'data:image/jpg;base64,' + singleFoodDetail?.image}}" alt="Random first slide" width="350px" class="d-block " height="400px">
+
+    </div>
+
+    <div class="col-9" style="padding-left:100px">
+    <br><br>
+    <p style="color: #282828; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">
+      {{singleFoodDetail?.foodProductName}} ({{singleFoodDetail?.foodProductTypeName}})</p>
+    <span style="color: grey; font-size: 12px;">Product Id ____{{singleFoodDetail?.foodProductID}}____</span>
+    <br><br>
+    <h4><strong style="font-size: 24px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{singleFoodDetail?.price | currency: 'Rs ': 'symbol':'1.0'}}</strong></h4>
+    <!--More Mobile Details -->
+    <ul style="list-style: none; padding-left: 0%;">
+     <li style="display: inline-block;">
+      <div>
+       <span style="color: grey; font-size: 14px;">Food Product Type Name</span>
+       <h6 style="font-size: 15px;">{{singleFoodDetail?.foodProductTypeName}}</h6>
+      </div>
+     </li> &nbsp;
+     <li style="display: inline-block;">
+      <div>
+       <span style="color: grey; font-size: 14px;">Condition</span>
+       <h6 style="font-size: 15px;">Fresh made</h6>
+      </div>
+     </li>
+     <li style="display: inline-block; padding-left: 15px;">
+      <div>
+       <span style="color: grey; font-size: 15px;">Delivery</span>
+       <h6 style="font-size: 14px;">In 30 mints</h6>
+      </div>
+     <li style="display: inline-block; padding-left: 15px;">
+      <div>
+       <span style="color: grey; font-size: 15px;">Availability</span>
+       <h6 style="font-size: 14px;">{{'In Stock'}}</h6>
+      </div>
+     </li>
+     <li style="display: inline-block; padding-left: 15px;">
+      <div>
+       <span style="color: grey; font-size: 15px;">Id</span>
+       <h6 style="font-size: 14px;">____{{singleFoodDetail?.foodProductID}}____</h6>
+      </div>
+     </li><br>
+      <li style="display: inline-block; padding-left: 0px;">
+
+
+      <div>
+       <span style="color: grey; font-size: 12px;">Quantity of Product</span>
+       <div style="margin-top: 4px; margin-bottom: 16px;">
+        <button class="btn" style="background-color:#d3bc8e;"  (click)="subtractingProductQuantity()" [disabled]="addQuantity==1" >-</button>&nbsp;
+        <span>{{addQuantity}}</span> &nbsp;
+        <button class="btn" style="background-color:#d3bc8e;" (click)="addingProductQuantity()" [disabled]="addQuantity == 5"  >+</button>
+       </div>
+      </div>
+
+
+     </li>
+    </ul>
+
+
+    <div>
+    <img src="../../../../assets//dummy pic.png" alt="">
+
+    <br><br><br>
+    <div>
+    <!-- Add to Cart & Buy Button -->
+    <button type="button" class="btn  first-btn"
+     style="border-radius: 15%; width: 200px; height: 45px;margin-right: 15px;" (click)="addToCartProduct(singleFoodDetail)">Add to Cart</button>
+
+     <!-- Cart-View -->
+    <button type="button" class="btn second-btn " [routerLink]="['/Cart']" style="  border-radius: 15%; width: 200px; height: 45px;" id="addData" data-toggle="modal"
+    data-target="#exampleModal">Buy Now</button>
+    </div>
+  </div>
+
+
+
+
+
+
+  </div>
+    </div>
+
+    <div>
+      <br>
+      <h4>Food Description</h4><hr>
+      <p>{{singleFoodDetail?.foodProductDescription}}</p>
+    </div>
+
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>

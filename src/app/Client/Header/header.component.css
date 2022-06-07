@@ -1,0 +1,46 @@
+.contact-navbar{
+  padding-bottom: 8px;
+  padding-top: 8px;
+  max-width: 100%;
+}
+
+.left-links {
+  padding-left: 200px;
+}
+
+.right-link{
+  padding-right: 200px;
+}
+
+.nav-item a {
+  color: #d3bc8e;;
+  text-decoration: none;
+}
+
+.nav-item a:hover{
+  color: white;
+}
+
+.navigation-navbar{
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  background-color: black;
+  opacity: 0.8;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+.second-navbar-links{
+  display: flex;
+  gap: 19px;
+}
+
+.badge {
+  color: #2f6f55;
+    background: #f9f7dc;
+    font-size: 10px;
+    position: relative;
+    top: -11px;
+    left: 1px;
+}

@@ -1,0 +1,82 @@
+<app-admin-header></app-admin-header>
+<br>
+
+
+  <div class="container">
+    <div class="row">
+      <button class="btn btn-warning add-category-btn" (click)="showAddFoodProductModel()">Add Food Product  </button><br>
+      <div class="card">
+        <p-table [value]="FoodProductList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+          responsiveLayout="scroll" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10,25,50]">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Food product image</th>
+              <th>Food product no</th>
+              <th>Food product name</th>
+              <th>Food product description</th>
+              <th>Food product price</th>
+              <th>Food product type</th>
+              <th>Delete</th>
+
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-foodProduct>
+            <tr class="data-row">
+              <td><img src="data:image/jpg;base64,{{foodProduct?.image}}" style="width: 100px; height:100px" alt=""></td>
+              <td>{{foodProduct?.foodProductID}}</td>
+              <td>{{foodProduct?.foodProductName}}</td>
+              <td>{{foodProduct?.foodProductDescription}}</td>
+              <td>{{foodProduct?.price}}</td>
+              <td>{{foodProduct?.foodTypeName}}</td>
+              <td>
+                <a pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="onDeleteFoodProduct(foodProduct?.foodProductID)"></a>
+              </td>
+
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- Delete Category Conformation -->
+
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button"  label="Cancel" (click)="cd?.reject()" class="btn btn-primary">Cancel</button>
+    <button type="button" class="btn btn-danger"  label="Ok" (click)="cd?.accept()">Remove</button>
+  </p-footer>
+</p-confirmDialog>
+
+
+<p-dialog header="Adding food type" [(visible)]="displayAddFoodProductModel" [style]="{width: '50vw'}" (onHide)="removeErrorMessage()">
+  <form [formGroup]="foodProductFormData">
+    <label>Food product name</label>
+    <input type="text" formControlName="foodProductName" placeholder="please write food name" class="form-control"><br>
+
+    <label>Food Product Description</label>
+    <input type="text" formControlName="foodProductDescription" placeholder="please write food description" class="form-control"><br>
+
+    <label>Food price</label>
+    <input type="number" formControlName="price" placeholder="please write food price" class="form-control"><br>
+
+    <label>Food product type</label>
+    <select formControlName="foodTypeId" class="form-select">
+      <option [value]="null" selected disabled>----------Select product type----------</option>
+      <option *ngFor="let a of foodTypeList" [value]="a?.foodTypeID">{{a?.foodTypeName}}</option>
+    </select><br>
+
+    <label>Food Image</label><br>
+    <input type="file" (change)="fileChange($event)" #inputFile>
+
+    <div class="save-btn"><br>
+    <button class="btn btn-success" style="float: right;" [disabled]="foodProductFormData.invalid" (click)="onSaveFoodProduct()">Save food product</button>
+    </div>
+
+  </form>
+
+</p-dialog>

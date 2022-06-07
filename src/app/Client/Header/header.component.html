@@ -1,0 +1,63 @@
+<nav class="navbar contact-navbar navbar-expand-lg bg-dark">
+  <ul class="navbar-nav left-links">
+    <li class="nav-item social-icons ">
+      <a href="https://www.instagram.com"> <i class="fa-brands fa-instagram"></i></a>
+    </li>
+    <li class="nav-item">
+      &nbsp; <a href="https://www.facebook.com"> <i class="fa-brands fa-facebook"></i></a>
+    </li>
+  </ul>
+
+
+  <ul class="navbar-nav ms-auto right-link">
+    <li class="nav-item">
+      <a><i class="fa-solid fa-phone"></i> &nbsp; Gulberg 3, Lahore Pakistan : 0311 0001119 &nbsp;&nbsp;&nbsp; |
+        &nbsp;&nbsp;&nbsp;</a>
+    </li>
+
+    <li class="nav-item">
+      <a><i class="fa-solid fa-clock"></i> &nbsp; Mon-Sat: 12:00 - 0:00 Sun: 10:00 - 0:00 </a>
+
+    </li>
+  </ul>
+</nav>
+
+<!-- Navigation Navbar -->
+
+<nav class="navbar navigation-navbar navbar-expand-lg">
+  <ul class="navbar-nav left-links">
+    <li class="nav-item social-icons ">
+      <a [routerLink]="['']"> Bakar Food</a>
+    </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <li class="nav-item social-icons ">
+      <a [routerLink]="['/Admin']"> Admin Side</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ms-auto right-link second-navbar-links">
+
+    <li class="nav-item">
+      <a [routerLink]="['/Menu']">Menu</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/About']">About</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/Galary']">Gallery</a>
+    </li>
+
+     <li class="nav-item">
+      <a [routerLink]="['/Location']">Locations</a>
+    </li>
+
+    <li class="nav-item">
+     <a [routerLink]="['/Cart']"><i class="fa-solid fa-cart-arrow-down"></i>
+      <span class="badge" id='lblCartCount'> {{numberOfItemsInCart}}</span>
+    </a>
+    </li>
+  </ul>
+</nav>
+

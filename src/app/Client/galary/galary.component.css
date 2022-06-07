@@ -1,0 +1,41 @@
+.main-pic {
+  width: 100%;
+  object-fit:cover;
+  height: 28rem;
+  /* Create the parallax scrolling effect */
+  position: absolute;
+}
+
+
+
+.galary-pic {
+  position: relative;
+  padding-bottom: 470px;
+}
+.main-header {
+
+  position: absolute;
+  top: 200px;
+  left: 45%;
+  color: rgb(255, 255, 255);
+  border-bottom: whitesmoke 1px solid;
+  font-size: 55px;
+}
+
+.row{
+  margin-left: auto;
+  margin-right: auto;
+  width: 850px;
+  padding-top: 20px;
+}
+
+
+.col-3 img {
+  width:200px;
+  height:200px;
+  cursor: pointer;
+}
+
+.main-header:hover {
+  color: #d3bc8e;
+}

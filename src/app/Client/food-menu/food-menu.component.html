@@ -1,0 +1,70 @@
+<app-header></app-header>
+<br><br><br><br>
+<div class="main-food-div">
+  <div class="sidbar-section">
+    <h4>Select food type</h4>
+    <div class="list-product-type-name">
+      <ul>
+        <hr class="showall-hr">
+        <a class="showAll" (click)="filterdFood(0)">Show All</a>
+        <hr class="showall-hr">
+        <li *ngFor="let singleType of productTypeList">
+          <a (click)="filterdFood(singleType?.foodTypeID)">{{singleType?.foodTypeName}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div *ngIf="filterdArr">
+
+    <div class="row">
+      <div class="col-lg-2 singleBox" *ngFor="let singleFoodProduct of foodsList">
+        <a style=" font-family: Gotham Medium; font-size: 15px; color: #282828; text-decoration: none;"
+          [routerLink]="['/FoodProduct/Detail/',singleFoodProduct?.foodProductID]">
+
+          <img src="data:image/jpg;base64,{{singleFoodProduct?.image}}" class="card-img-top" alt="adv" />
+          <span style="font-family: Gotham Medium; font-size: 14px; ">{{singleFoodProduct?.foodProductName | uppercase}}
+          </span>
+          <span style="font-family: Gotham Medium; font-size: 14px; "> &nbsp;({{singleFoodProduct?.foodTypeName |
+            uppercase}})</span>
+          <p style="height: 45px;">{{singleFoodProduct.foodProductDescription}}</p>
+          <div>
+            <button class="box-btn-1st"><b>{{singleFoodProduct?.price | currency: 'Rs ': 'symbol':'1.0'}}</b></button>
+            <button class="box-btn-2nd"><b>ADD TO BUCKET</b></button>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- when array is filtered then this block will execute -->
+  <div *ngIf="!filterdArr">
+    <h1>I m now</h1>
+    <div class="row">
+      <div class="col-lg-2 singleBox" *ngFor="let singleFoodProduct of filteredArrData">
+        <a style=" font-family: Gotham Medium; font-size: 15px; color: #282828; text-decoration: none;"
+          [routerLink]="['/FoodProduct/Detail/',singleFoodProduct?.foodProductID]">
+
+          <img src="data:image/jpg;base64,{{singleFoodProduct?.image}}" class="card-img-top" alt="adv" />
+          <span style="font-family: Gotham Medium; font-size: 14px; ">{{singleFoodProduct?.foodProductName | uppercase}}
+          </span>
+          <span style="font-family: Gotham Medium; font-size: 14px; "> &nbsp;({{singleFoodProduct?.foodTypeName |
+            uppercase}})</span>
+          <p style="height: 45px;">{{singleFoodProduct.foodProductDescription}}</p>
+          <div>
+            <button class="box-btn-1st"><b>{{singleFoodProduct?.price | currency: 'Rs ': 'symbol':'1.0'}}</b></button>
+            <button class="box-btn-2nd"><b>ADD TO BUCKET</b></button>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>

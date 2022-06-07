@@ -1,0 +1,166 @@
+<app-header></app-header>
+
+
+
+
+<div class="container main-cart">
+  <div class="row">
+    <div class="col-offset-2"></div>
+
+
+
+    <div class="col-8">
+
+
+
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Food Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cartItem of cartDataList">
+            <div style=" display: inline-block; position: relative;">
+              <a><i
+                  style="position: absolute;top: 0;right: 0; cursor: pointer; background:red; border-radius: 20%; font-size: 22px; color:white;"
+                  (click)="RemoveItemFromCart(cartItem?.foodProductID)" class="fas fa-times"></i></a>
+              <th style="padding-bottom: 40px;" scope="row"><img src="{{'data:image/jpg;base64,'+cartItem?.image}}"
+                  width="80px" height="80px" alt=""></th>
+            </div>
+            <td>{{cartItem?.foodProductName}}</td>
+            <td>{{cartItem?.price | currency: 'Rs ': 'symbol':'1.0'}}</td>
+            <td style="padding-top:26px !important">
+              <button class="btn" style="background-color:white;" (click)="subtractingProductQuantity(cartItem)"
+                [disabled]="cartItem?.quantity==1">-</button>&nbsp;
+              <span>{{cartItem?.quantity}}</span> &nbsp;
+              <button class="btn" style="background-color:white;" (click)="addingProductQuantity(cartItem)"
+                [disabled]="cartItem?.quantity == 10">+</button>
+            </td>
+            <td>{{cartItem?.price * cartItem?.quantity | currency: 'Rs ': 'symbol':'1.0'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2" style="background-color: #d3bc8e; width: 289px; height: 540px;">
+      <div style="text-align: center;">
+
+        <hr style="border-bottom: 5px solid black; width: 261px;">
+        <br><br><br><br><br><br><br><br><br>
+        <span><b>CART TOTAL</b> &nbsp; <span style="font-size: 24px;"><b>{{totalPrice | currency: 'Rs ':
+              'symbol':'1.0'}}</b></span></span>
+        <button *ngIf="showCheckOutButton" (click)="showModelDialogOfCheckOut()" class="btn btn-lg"
+          onMouseOver="this.style.background='white', this.style.color='black'"
+          onMouseOut="this.style.background='black',this.style.color='white'"
+          style="margin-top:10px; background-color: black; color: white; border-radius: 20px;">CHECKOUT <i
+            class="fas fa-shopping-bag"></i> </button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<p-dialog [(visible)]="displayModal" (onHide)="removeMessage()" [dismissableMask]="true" [modal]="true"
+  [style]="{width: '70vw', height: '100vw'}" [draggable]="false" [resizable]="false">
+  <p-header>
+    <h1 style="text-align: center;">Cart And Delivery Address</h1>
+  </p-header>
+
+  <!-- Purchased Cart Item -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="orderMessage">
+          {{orderMessage}}
+          <a (click)="removeMessage()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </a>
+        </div>
+
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartItem of cartDataList">
+              <th style="padding-bottom: 40px;" scope="row"><img src="{{'data:image/jpg;base64,'+cartItem?.image}}"
+                  width="80px" height="80px" alt=""></th>
+              <td>{{cartItem?.foodProductName }}</td>
+              <td>{{cartItem?.quantity}}</td>
+              <td>{{cartItem?.price | currency: 'Rs ': 'symbol':'1.0'}}</td>
+              <td>{{cartItem?.price * cartItem?.quantity | currency: 'Rs ': 'symbol':'1.0'}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <!-- Cart Total Items -->
+        <h2 style="text-align: right; padding-right: 110px;">
+          CART TOTAL = {{totalPrice | currency: 'Rs ': 'symbol':'1.0'}}
+        </h2>
+        <hr>
+        <br>
+        <div *ngIf="showAddress">
+        <h3>Add address for shipment!</h3>
+        <div class="col-4">
+
+          <form #formData="ngForm" (ngSubmit)="sendOrderWithCustomerAddress(formData)">
+
+            <label for="">Full name:</label>
+            <input #fullName="ngModel" type="text" class="form-control" name="fullName" required ngModel placeholder="please enter your full name" id="">
+            <span *ngIf="fullName?.invalid && fullName?.touched" style="color: red;">you need to Write Full name!</span><br>
+
+            <label for="">Full address:</label>
+            <input #fullAddress="ngModel" type="text" class="form-control" name="fullAddress" required ngModel placeholder="please enter your address" id="">
+            <span *ngIf="fullAddress?.invalid && fullAddress?.touched" style="color: red;">you need to Write Full address!</span><br>
+
+            <label for="">Phone number:</label>
+            <input #phoneNumber="ngModel" type="number" class="form-control" name="phoneNumber" required ngModel placeholder="please enter your number" id="">
+            <span *ngIf="phoneNumber?.invalid && phoneNumber?.touched" style="color: red;">you need to Write Phone number!</span><br>
+
+              <!-- Accept Order -->
+            <button class="btn btn-warning" [disabled]="formData?.invalid" type="submit" style="position: absolute; bottom: 24px; right: 32px;">Order Confirm!</button>
+
+          </form>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</p-dialog>
+<!--  -->
+
+
+
+
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" label="Cancel" (click)="cd?.reject()" class="btn btn-primary">Cancel</button>
+    <button type="button" class="btn btn-danger" label="Ok" (click)="cd?.accept()">Remove</button>
+  </p-footer>
+</p-confirmDialog>
+
+
+
+
+<br><br><br><br><br> <br><br><br>
+<app-footer></app-footer>
